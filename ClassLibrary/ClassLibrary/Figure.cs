@@ -17,16 +17,25 @@ namespace Library
 
         public static double Triangle(double a, double b, double c)
         {
+            Triangle triangle;
             try
             {
-                Triangle triangle = new Triangle(a, b, c);
+                triangle = new Triangle(a, b, c);
             }
             catch (Exception e)
             {
                 throw e;
             }
-            double p = (a + b + c) / 2;
-            return Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+            if (triangle.IsRight())
+            {
+                return a * b / 2;
+            }
+            else
+            {
+                double p = (a + b + c) / 2;
+                return Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+            }
+            
         }
     }
     
